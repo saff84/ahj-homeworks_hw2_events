@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1D1E22;
+  cursor: url('../img/custom.png'), auto;
+}
+
+.board {
+  width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 140px;
+  height: 140px;
+  margin: 5px;
+  background-color: #067421;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#points,
+#godlins {
+  display: block;
+  font-size: 24px;
+  color: aliceblue;
+}
