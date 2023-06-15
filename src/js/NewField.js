@@ -30,8 +30,8 @@ export default class NewField {
 
   randomGoblin() {
 
-    let hitGoblin = 0;
-    let wingClick = 0;
+    let targetClick = 0;
+    let missedClick = 0;
     const interval = setInterval(() => {
 
       if (document.images[0]) {
@@ -45,34 +45,25 @@ export default class NewField {
           childDivs[index].classList.add('activ')
           childDivs[index].appendChild(img);
 
-      // hitGoblin++;
-      // godlins.textContent = `Пропущено гоблинов ${hitGoblin}`;
-      // if (hitGoblin === 5) {
-      //   alert(`Игра окончена, пропущено ${hitGoblin} гоблинов `);
-      //   clearInterval(interval);
-      // }
     }, 1000);
 
     document.addEventListener("click", (event) => {
       const eventTarget = event.target;
       if (eventTarget.closest("img")) {
-
-        if (wingClick < 5){
-          wingClick++;
-          // hitGoblin--;
-          points.innerText = `Набрано баллов ${wingClick}`;
-        } else {
+        targetClick++;
+        points.innerText = `Набрано баллов ${targetClick}`;
+        if (targetClick === 5){
           alert(`Игра окончена, Вы выйграли! `);
           clearInterval(interval);
-        }
+        } 
         
       } else {
-        if (hitGoblin === 5) {
+        missedClick++;
+        godlins.textContent = `Пропущено гоблинов ${missedClick}`
+        if (missedClick === 5) {
           alert(`Игра окончена, пропущено ${hitGoblin} гоблинов `);
           clearInterval(interval);
         }
-        hitGoblin++;
-        godlins.textContent = `Пропущено гоблинов ${hitGoblin}`
       }
 
     });
