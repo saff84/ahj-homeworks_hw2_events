@@ -61,7 +61,7 @@ export default class NewField {
         missedClick++;
         godlins.textContent = `Пропущено гоблинов ${missedClick}`
         if (missedClick === 5) {
-          alert(`Игра окончена, пропущено ${hitGoblin} гоблинов `);
+          alert(`Игра окончена, пропущено ${missedClick } гоблинов `);
           clearInterval(interval);
         }
       }
