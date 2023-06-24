@@ -17,7 +17,9 @@ export default class NewField {
       div.classList.add('cell')
       plaingField.appendChild(div);
     }
-    this.timeout = setTimeout(this.randomGoblin, 1000)
+    // console.log('timer1')
+    this.randomGoblin()
+    // this.timeout = setTimeout(this.randomGoblin(), 1000)
     this.listner();
   }
 
@@ -27,6 +29,7 @@ export default class NewField {
      }
 
   randomGoblin(){
+    clearTimeout(this.timeout)
     console.log('random')
 
     if (document.images[0]) {
@@ -39,12 +42,14 @@ export default class NewField {
       console.log('random no if')
     const childDivs = plaingField.children;
     console.log(this)
-    const index = this.genPosition;
-    alert(index)
+    const index = this.genPosition();
+    console.log(index)
+    console.log(childDivs)
     childDivs[index].classList.add('activ')
     childDivs[index].appendChild(img);
+    console.log('timer2')
 
-    this.timeout = setTimeout(this.randomGoblin.bind(this), 1000);        
+    this.timeout = setTimeout(this.randomGoblin(), 1000);        
 
   }
 
@@ -60,21 +65,21 @@ export default class NewField {
       if (eventTarget.closest("img")) {
         targetClick++;
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(this.randomGoblin, 1000)
+        this.timeout = setTimeout(this.randomGoblin(), 1000)
 
         points.innerText = `Набрано баллов ${targetClick}`;
         if (targetClick === 5){
-          alert(`Игра окончена, Вы выйграли! `);
+          alert('Игра окончена, Вы выйграли! ');
           clearTimeout(this.timeout)
         } 
         
       } else {
         missedClick++;
         clearTimeout(this.timeout)
-        this.timeout = setTimeout(this.randomGoblin, 1000)
+        this.timeout = setTimeout(this.randomGoblin(), 1000)
         godlins.textContent = `Пропущено гоблинов ${missedClick}`
         if (missedClick === 5) {
-          alert(`Игра окончена, пропущено ${missedClick } гоблинов `);
+          alert(`Игра окончена, пропущено ${missedClick } гоблинов` );
           clearTimeout(this.timeout)
         }
       }
