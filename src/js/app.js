@@ -1,7 +1,26 @@
-import NewField from "./NewField";
+import { Field } from "./Field";
+import { Goblin } from "./Goblin";
+import { GameController } from "./GameController";
+import { Counters } from "./Counters";
 
-const play = new NewField(4);
-// let genPosition = play.genPosition.bind(play)
+const field = new Field(document.querySelector('.board'));
+field.start()
+const goblin = new Goblin();
+const counters = new Counters(document.querySelector('.counter-box'));
 
-play.start()
- 
+const controller = new GameController(field, goblin, counters);
+
+controller.addOnCkickListener(function (event) {
+    const target = event.target;
+    if(target.classList.contains('goblin')) {
+        this.counters.incrementShoots();
+        this.clearTimeout();
+        this.goblin.element.remove();
+        this.timeoutBegin();
+
+    } else {
+        this.counters.incrementMiss();
+    }
+})
+
+controller.start();

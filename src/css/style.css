@@ -22,17 +22,12 @@ body {
   text-align: center;
 }
 
-.container {
+.counter-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-}
-
-#points,
-#godlins {
-  display: block;
   font-size: 24px;
   color: aliceblue;
+  margin-top: 20px;
 }
