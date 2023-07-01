@@ -1,0 +1,1 @@
+*{box-sizing:border-box}body{background-color:#1d1e22;cursor:url(3c997de4510862c69027.png),auto}.board{display:flex;flex-wrap:wrap;margin:20px auto;width:600px}.cell{background-color:#067421;height:140px;margin:5px;text-align:center;width:140px}.counter-box{align-items:center;color:#f0f8ff;display:flex;flex-direction:column;font-size:24px;justify-content:center;margin-top:20px}
